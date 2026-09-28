@@ -1,4 +1,4 @@
-###### Structure.md >> markdown
+###### structure.md >> markdown
 # 📁 Structure
 >**v1.0**
 - AppSamsungA7
@@ -11,11 +11,14 @@ AppSamsungA7/
 ├── README.md
 ├── .gitignore
 ├── docs/
-│   └── overview.md
+     ├── README.md
+     ├── structure.md
+     └── overview.md
 ├── build.gradle
 ├── settings.gradle
 └── .github/
-    └── workflows/
+     ├── .gitkeep
+     └── workflows/
         └── ci.yml
 ```
 
