@@ -2,7 +2,8 @@
 # 🟩 AppSamsungA7
 - **v1.0**
    - *Base sans app/*
-[![CI - AppSamsungA7 Base](https://github.com/teremuhamblin/AppSamsungA7/actions/workflows/ci.yml/badge.svg)](https://github.com/teremuhamblin/AppSamsungA7/actions/workflows/ci.yml)
+
+[![CI - AppSamsungA7 Base](https://github.com/teremuhamblin/AppSamsungA7/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/teremuhamblin/AppSamsungA7/actions/workflows/ci.yml)
 >Structure de base du projet *avant intégration du module Android*.
 
 ### Contenu
