@@ -27,3 +27,34 @@ jobs:
 
       - name: Base Build Check
         run: echo "Structure v1.0 OK — aucun module Android présent."
+
+  stateless-token-test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Generate GitHub App Installation Token
+        id: generate_token
+        uses: actions/github-app-token@v1
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Test Stateless Token Format
+        run: |
+          echo "Testing stateless token format..."
+          curl -s \
+            -H "Authorization: Bearer ${{ steps.generate_token.outputs.token }}" \
+            -H "X-GitHub-Stateless-Token: true" \
+            https://api.github.com/app | jq '.'
+
+      - name: Validate Token Length
+        run: |
+          TOKEN="${{ steps.generate_token.outputs.token }}"
+          echo "Token length: ${#TOKEN}"
+          if [ ${#TOKEN} -lt 300 ]; then
+            echo "Warning: token length unexpectedly short (stateless tokens ~520 chars)."
+          else
+            echo "Stateless token length OK."
+          fi
