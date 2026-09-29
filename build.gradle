@@ -1,17 +1,26 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath "com.android.tools.build:gradle:8.0.2"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0"
-    }
+plugins {
+    id 'java'
+    id 'maven-publish'
 }
 
-allprojects {
+group = "com.teremu.appsamsunga7"
+version = "1.0.0"
+
+publishing {
+    publications {
+        appSamsungA7(MavenPublication) {
+            from components.java
+            artifactId = "appsamsunga7-base"
+        }
+    }
     repositories {
-        google()
-        mavenCentral()
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/teremu/AppSamsungA7")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
     }
 }
