@@ -34,27 +34,16 @@ jobs:
       contents: read
 
     steps:
-      - name: Generate GitHub App Installation Token
-        id: generate_token
-        uses: actions/github-app-token@v1
-        with:
-          app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.APP_PRIVATE_KEY }}
-
-      - name: Test Stateless Token Format
+      - name: Use GitHub Token
         run: |
-          echo "Testing stateless token format..."
+          echo "Token récupéré via GITHUB_TOKEN."
+          TOKEN="${{ secrets.GITHUB_TOKEN }}"
+          echo "Longueur du token : ${#TOKEN}"
+
+      - name: Test Stateless Header
+        run: |
+          echo "Test du header stateless..."
           curl -s \
-            -H "Authorization: Bearer ${{ steps.generate_token.outputs.token }}" \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
             -H "X-GitHub-Stateless-Token: true" \
-            https://api.github.com/app | jq '.'
-
-      - name: Validate Token Length
-        run: |
-          TOKEN="${{ steps.generate_token.outputs.token }}"
-          echo "Token length: ${#TOKEN}"
-          if [ ${#TOKEN} -lt 300 ]; then
-            echo "Warning: token length unexpectedly short (stateless tokens ~520 chars)."
-          else
-            echo "Stateless token length OK."
-          fi
+            https://api.github.com/user
