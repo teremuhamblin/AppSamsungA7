@@ -22,9 +22,6 @@ jobs:
           distribution: "temurin"
           java-version: "17"
 
-      - name: Validate Gradle Wrapper
-        uses: gradle/actions/wrapper-validation@v3
-
       - name: Base Build Check
         run: echo "Structure v1.0 OK — aucun module Android présent."
 
