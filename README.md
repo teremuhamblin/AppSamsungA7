@@ -3,7 +3,11 @@
 - **v1.0**
    - *Base sans app/*
 
-[![CI - AppSamsungA7 Base](https://github.com/teremuhamblin/AppSamsungA7/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/teremuhamblin/AppSamsungA7/actions/workflows/ci.yml)
+<p align="center">
+
+   [![CI - AppSamsungA7 Base](https://github.com/teremuhamblin/AppSamsungA7/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/teremuhamblin/AppSamsungA7/actions/workflows/ci.yml)
+</p>
+
 >Structure de base du projet *avant intégration du module Android*.
 
 ### Contenu
@@ -16,7 +20,8 @@
 - Point de départ pour une application de sécurité dédiée au *Samsung Galaxy A7 SM-A750FN/DS.*
 
 ### Prochaine étape
->Ajouter le dossier app/ pour intégrer le code Android.
+<p align="center">
+Ajouter le dossier app/ pour intégrer le code Android.</p>
 
 ### Licence
 >Boost Software License 1.0
